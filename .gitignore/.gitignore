@@ -1,3 +1,4 @@
+# 아래 나열된 파일들은 git작업에서 무시되고 local에 덮어씌여지지 않음
 *.java.hsp
 *.sonarj
 *.sw*
