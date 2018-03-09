@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-public class IdCheck {
+public class IdCheckController {
 	/*MemberDao md = MemberDaojdbcImpl.getInstance();
 
 	@Override
