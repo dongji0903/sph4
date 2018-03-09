@@ -19,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -52,7 +53,7 @@ public class LoginMemberController implements ApplicationContextAware {
 	public ModelAndView loginCustomer(ModelAndView m,
 			@RequestParam("UserId") String id,
 			@RequestParam("Password") String pw,
-			@RequestParam("idSave")String saveId,HttpServletRequest request,
+			HttpServletRequest request,
 			HttpServletResponse response) {
 		System.out.println("[LoginMemberController]:id="+id+",pass="+pw);
 		Member member=memberService.login(id, pw);
@@ -67,6 +68,8 @@ public class LoginMemberController implements ApplicationContextAware {
 			m.addObject("nickName", member.getNickName());
 			m.addObject("email", member.getEmail());
 			m.addObject("memberType", member.getMemberType());
+			String saveId=request.getParameter("idSave");
+			System.out.println("idSave="+saveId);
 			if (saveId != null) {
 				System.out.println("[LoginMemberController]아이디 쿠키저장");
 				Cookie c = new Cookie("id", id);
